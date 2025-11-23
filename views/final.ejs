@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-top: 40px;
+      color: #00eaff;
+      text-shadow: 0 0 20px #00eaff;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(0,255,255,0.25);
+      box-shadow: 0 0 20px rgba(0,255,255,0.25);
+      max-width: 700px;
+      margin: 50px auto;
+      backdrop-filter: blur(12px);
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    h2 {
+      color: #00eaff;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: block;
+      width: fit-content;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      background: #00c8ff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #00eaff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1> Mission Accomplie</h1>
+
+  <div class="card">
+
+    <h2>Ce que les 4 niveaux vous ont appris sur NestJS</h2>
+
+    <p><strong> Niveau 1 — Controllers</strong><br>
+    Vous découvrez comment NestJS expose une route et comment réagir lorsqu’un endpoint ne répond plus. 
+    Vous comprenez que le controller est la porte d’entrée du framework.</p>
+    
+    <p><strong> Niveau 2 — Services</strong><br>
+    Vous apprenez que la logique doit être séparée du controller. 
+    NestJS encourage une architecture propre basée sur l’injection de dépendances.</p>
+    
+    <p><strong> Niveau 3 — DTO & Validation</strong><br>
+    Vous voyez comment NestJS valide automatiquement les données entrantes. 
+    Les DTO protègent l’application sans avoir à écrire de conditions manuelles.</p>
+    
+    <p><strong> Niveau 4 — Guards</strong><br>
+    Vous découvrez comment NestJS contrôle l’accès à une route. 
+    Les Guards permettent d’intercepter une requête avant d’atteindre le controller.</p>
+
+    <br>
+    <p style="font-style: italic; text-align:center;">
+      Vous avez officiellement terminé l’Escape Game NestJS.<br>
+      L’agence vous félicite pour vos compétences.
+    </p>
+
+    <a class="btn" href="/">Retour à l'accueil</a>
+  </div>
+
+</body>
+</html>

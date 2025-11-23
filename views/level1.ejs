@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Niveau 1 – Escape Game NestJS</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0f16;
+      color: #d9e6f2;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,255,255,0.2);
+      max-width: 600px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 12px rgba(0,255,255,0.2);
+    }
+
+    a {
+      color: #00eaff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    a:hover {
+      color: #fff;
+      text-shadow: 0 0 12px #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Niveau 1</h1>
+
+  <div class="box">
+    <p>    Un endpoint critique ne répond plus.    </p>
+    <p> Objectif : Restaurer l’accès à <code>/heroes</code>.</p>
+    <p>➡️ Testez l’endpoint :</p>
+    <a href="/heroes">/heroes</a>
+  </div>
+  <div id="next-level" style="display: none; margin-top: 20px;">
+    <a href="/level2" 
+       style="color:#00eaff; font-size:20px; font-weight:bold; text-decoration:none;">
+      Accéder au Niveau 2
+    </a>
+  </div>
+  
+  <script>
+    fetch('/heroes')
+      .then(res => {
+        if (res.ok) {
+          //si JSON obtenu correctement = niveau 1 validé
+          document.getElementById('next-level').style.display = 'block';
+        }
+      })
+      .catch(err => {
+
+      });
+  </script>
+  
+</body>
+</html>

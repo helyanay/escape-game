@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Niveau 2</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00eaff;
+      text-shadow: 0 0 12px #00eaff;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 30px;
+      margin: auto;
+      width: 70%;
+      border: 1px solid rgba(0,255,255,0.2);
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+      backdrop-filter: blur(10px);
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    pre {
+      text-align: left;
+      margin: 10px auto;
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
+      border-radius: 8px;
+      width: 60%;
+      color: #00eaff;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Niveau 2</h1>
+
+  <div class="card">
+
+    <p><strong>Objectif du niveau :</strong></p>
+    <p>Corriger le point d’entrée permettant d’ajouter un héros.</p>
+
+    <p><strong>Endpoint à réparer :</strong></p>
+    <pre>POST /heroes</pre>
+
+    <p><strong>Données à envoyer :</strong></p>
+
+<pre>
+{
+  "name": "Flash"
+}
+</pre>
+
+    <p>
+      Si la création fonctionne, l’API doit répondre avec un message de confirmation.
+    </p>
+
+
+  </div>
+  <form method="POST" action="/heroes" style="margin-top:20px;">
+    <input type="text" name="name" placeholder="Nom du héros" required
+           style="padding:10px; border-radius:8px; border:1px solid #00eaff;">
+    <button type="submit" 
+            style="padding:10px 20px; margin-left:10px; background:#00eaff; border:none;
+                   color:#000; font-weight:bold; border-radius:8px;">
+      Créer ce héros
+    </button>
+  </form>
+
+  <div id="next-level" style="display: none; margin-top: 20px;">
+    <a href="/level3" 
+       style="color:#00eaff; font-size:20px; font-weight:bold; text-decoration:none;">
+      Accéder au Niveau 3
+    </a>
+  </div>
+  
+  <script>
+    async function testPost() {
+      try {
+        const res = await fetch('/heroes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: 'Flash', power: 'Speed' })
+        });
+  
+        const data = await res.json();
+  
+        if (res.ok && data.hero) {
+          document.getElementById('next-level').style.display = 'block';
+        }
+  
+      } catch (e) {}
+    }
+  
+    testPost();
+  </script>  
+  
+
+</body>
+</html>

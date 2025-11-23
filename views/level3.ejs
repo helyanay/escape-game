@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Niveau 3 – Validation</title>
+
+  <style>
+    body {
+      background: #0c121a;
+      color: #d9e6f2;
+      font-family: Arial, sans-serif;
+      padding: 60px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+      font-size: 3rem;
+    }
+
+    .box {
+      width: 65%;
+      margin: auto;
+      padding: 25px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    code {
+      color: #4dfdff;
+      font-size: 17px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Niveau 3</h1>
+
+  <div class="box">
+    <p> Objectif : Mettre en place un DTO et s’assurer que la validation fonctionne correctement.</p>
+    <p> Endpoint : <code>POST /heroes</code></p>
+
+
+
+<pre style="color:#00f7ff;">
+Le DTO contiendra les champs suivants :
+- <code>name</code> : chaîne de caractères, non vide
+- <code>power</code> : chaîne de caractères, non vide
+</pre>
+
+
+<button id="test-validation" 
+        style="padding:12px 20px; background:#00eaff; border:none; border-radius:8px; 
+               font-weight:bold; margin-top:20px; cursor:pointer;">
+  Tester la validation
+</button>
+
+
+<pre id="test-result" 
+     style="margin-top:20px; background:rgba(255,255,255,0.05); padding:15px; border-radius:8px;"></pre>
+
+<div id="next-level" style="display:none; margin-top:20px;">
+  <a href="/level4" style="color:#00eaff; font-size:22px; font-weight:bold; text-decoration:none;">
+    ➤ Accéder au Niveau 4
+  </a>
+</div>
+
+<script>
+  document.getElementById('test-validation').onclick = async () => {
+    //on envoie volontairement un nom vide pour tester la validation
+    const res = await fetch('/heroes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: "" })  //volontairement faux
+    });
+
+    const data = await res.json();
+    document.getElementById('test-result').textContent = JSON.stringify(data, null, 2);
+
+    //Condition : la validation se doit de détecter les erreurs
+    const validationWorks = 
+      res.status === 400 &&
+      data.message &&
+      JSON.stringify(data.message).includes('should not be empty');
+
+    if (validationWorks) {
+      document.getElementById('next-level').style.display = 'block';
+    }
+  };
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 2px,
+        rgba(0,0,0,0.07) 4px
+      );
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00eaff;
+      text-shadow: 0 0 12px #00eaff;
+      margin-bottom: 15px;
+      animation: glitch 2s infinite;
+      position: relative;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px,2px); }
+      40% { transform: translate(2px,-2px); }
+      60% { transform: translate(-1px,1px); }
+      80% { transform: translate(1px,-1px); }
+      100% { transform: translate(0); }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,255,255,0.2);
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    p { font-size: 18px; }
+
+    .error {
+      color: #ff4d6d;
+      font-weight: bold;
+      text-shadow: 0 0 8px #ff4d6d;
+    }
+
+    a {
+      color: #00eaff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: #fff;
+      text-shadow: 0 0 12px #fff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="scanlines"></div>
+
+  <div class="container">
+
+    <h1>ESCAPE GAME NESTJS</h1>
+
+    <div class="card">
+      <p>Bienvenue dans l’Escape Game NestJS.</p>
+      <p>Votre première mission est disponible.</p>
+      <a href="/level1">Commencer le Niveau 1</a>
+      <p><em>L’agence compte sur vous.</em></p>
+    </div>
+    
+
+  </div>
+
+</body>
+</html>
