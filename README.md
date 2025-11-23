@@ -6,6 +6,8 @@ Votre mission : résoudre les 4 niveaux techniques de cet Escape Game NestJS.
 Chaque niveau est volontairement cassé.  
 À vous de comprendre pourquoi… et réparer ce qui doit l’être.
 
+Cet atelier se déroule sous forme de **compétition** entre **binômes** :
+le premier duo à valider les 4 niveaux remporte la mission.
 
 # 1. Prérequis
 
